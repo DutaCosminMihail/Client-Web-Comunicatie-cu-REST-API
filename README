@@ -1,0 +1,73 @@
+Nume: Duta Mihail-Cosmin
+Grupa: 321CC
+
+Tema 3 - Protocoale de comunicatie
+
+Nota: Comenzile sunt citite de la tastatura pana la
+apasarea comenzii de <<exit>>.
+Daca utilizatorul a gresit comanda,
+se afiseaza <<Command not found!>>.
+
+1. Comanda de request:
+        - prima data am facut laboratorul 10 pentru 
+        a intelege mai bine ce trebuie sa fac in tema
+        - a trebuit sa implementez cereri de tip 
+        request ce folosesc token JWT
+        - pe langa tipurile de request din laborator (de exemplul 
+        compute_get_request & compute_post_request), 
+        am mai implementat si cel de <<delete>>, fiind 
+        asemanator cu cel al get-ului
+2. Parsarea JSON-ului:
+        - conform cerintei din tema, am uzitat
+        biblioteca <<parson>> (biblioteca se baseaza pe principii
+        POO adaptate pentru limbajul C)
+        - scop de folosire: trimiterea catre server a obiectelor
+        de tip JSON, dar si interpretarea raspunsurilor primite 
+        de la server
+3.Comanda de exit:  
+        - comanda incheie executia programului
+4.Comanda de register:
+        - dupa ce introducem aceasta comanda, trebuie completate
+        trebuie completate un <<username>> si o <<parola>> 
+        (se creaza obiectul de tip JSON conform datelor si
+        se trimite catre server un request de tip POST)
+5.Comanda de login:
+        - se aseamana foarte mult aceste ultime 2 comenzi 
+        (register si login), diferenta consta in faptul ca se 
+        salveaza cookie-ul primmit de la server intr-un pointer.
+6. Comanda de enter_library:
+        - construiesc request de tip GET cu ajutorul cookie ului
+        - se trimite mesaj catre server
+        - dupa ce se primeste mesajul de la server, salvez token-ul intr-un pointer
+        - se afiseaza mesaj de eroare daca nu s-a respectat request-ul
+7. Comanda de get_books:
+        -comanda afiseaza toate cartile din library 
+        - trimit un request GET catre server (
+            token- ul este uzitat pentru accesul in library)
+        -in caz de eroare, se afiseaza mesajul de la server(
+            in cazul in care cererea de request nu a fost 
+            executata cu succes
+        )
+8. Comanda get_book:
+        - foarte asemanatoare cu cea de mai sus 
+        - diferenta intre cele 2 comenzi este faptul ca
+        la get_book uzitez un request de tip GET si 
+        trebuie introdus si ID-ul cartii cerute  
+9. Comanda add_book:
+        - creez un request de tip POST (pe care-l trimit la server)
+        - se interpreteaza mesajul serverului 
+        - in cazul in care se introduc date gresite 
+        la unnul dintre campurile date se afiseaza eroarea
+        "WRONG FORMAT BOOK! TRY AGAIN!"
+10. Comanda delete_book:
+        - se trimite un request de tip delete
+        - cod foarte asemanator cu cel din get_book
+11. Comanda de logout:
+        - se trimite un request de tip GET in care 
+        se adauga si cookie pentru a nu da eroare 
+        cum ca user-ul nu ar fi autentificat
+
+
+
+
+    
